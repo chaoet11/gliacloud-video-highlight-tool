@@ -1,27 +1,25 @@
-export interface Sentence {
+export interface TranscriptSentence {
     id: string;
     text: string;
     startTime: number;
     endTime: number;
-    isHighlight: boolean;
     isSelected: boolean;
 }
 
-export interface Section {
+export interface TranscriptSection {
     id: string;
     title: string;
-    sentences: Sentence[];
+    sentences: TranscriptSentence[];
 }
 
-export interface TranscriptData {
+export interface MockAPIResponse {
     fullTranscript: string;
-    sections: Section[];
+    sections: TranscriptSection[];
+    suggestedHighlights: string[];
 }
 
-export interface VideoState {
-    file: File | null;
-    duration: number;
-    currentTime: number;
-    isPlaying: boolean;
-    isLoading: boolean;
+export interface HighlightSegment {
+    start: number;
+    end: number;
+    text: string;
 }
